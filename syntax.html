@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            background-color: black;
+        }
+    </style>
+</head>
+
+<body>
+    <script>
+        // 회원구분 (100이상 구매한 회원은 vip회원 / 일반회원)
+        let orderPrice = 150;
+        let isMember = orderPrice >= 100;
+        let msg;
+
+        if (isMember) {
+            msg = 'vip'
+        }
+        else {
+            msg = '일반회원'
+        }
+
+        console.log(msg);
+
+        // if (msg === 'vip') {
+        //     console.log('90% sale');
+        // }
+        // else if (msg === '일반회원') {
+        //     console.log('50% sale');
+        // }
+        // else {
+        //     console.log('0% sale');
+        // }
+
+        switch (msg) {
+            case 'vip':
+                console.log('90% sale');
+                break;
+
+            case '일반회원':
+                console.log('50% sale');
+                break;
+
+            default:
+                console.log('0% sale');
+                break;
+        }
+
+        let age = window.prompt('당신의 나이는?');
+        console.log(age);
+
+        window.onclick = function () {
+            if (age < 7) {
+                msg = '아동';
+            }
+            else if (age < 13) {
+                msg = '어린이';
+            }
+            else if (age <= 19) {
+                msg = '청소년';
+            }
+            else {
+                msg = '성인';
+            }
+
+            console.log(msg);
+        }
+
+    </script>
+</body>
+
+</html>

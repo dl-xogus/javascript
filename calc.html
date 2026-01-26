@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body { background-color: black; color: white; }
+        div { margin: 100px auto; width: 80%; border: 1px solid white; }
+    </style>
+</head>
+<body>
+    <script>
+        // [ var | let (가변변수) | const (불변변수) ] 변수를 선언하는 방법
+        
+        /* ========== var의 문제점 ========== */
+        /*
+        var name;             ( 마치 이렇게 선언한 것처럼 )
+        
+        console.log( '안녕하세요 ' + name + '님 환영합니다.' );       변수를 나중에 선언해도 브라우저가 알아서 name을 미리 선언한 것처럼 만듦
+        
+        var name = '홍길동';
+        var name = '이태현';        var는 같은 변수를 또 선언해도 빨간줄이 안생김
+
+        console.log( '안녕하세요 ' + name + '님 환영합니다.' );
+        */
+        
+        let name1 = "홍길동",
+            add = "전라남도 남원시...",
+            age1 = "100",
+            tel = "010-000-1244";
+
+        console.log( "당신의 이름은 " + name1 + "이고" );
+        console.log( "주소는 " + add + "이고" );
+        console.log( "나이는 " + age1 + "살이고" );
+        console.log( "전화번호는 " + tel + " 입니다." );
+        
+        /* ========== 연산자 ========== */
+
+        // 대입연산자 ( = )
+        // 산술연산자 ( +, -, *, /, % )
+        // 증감연산자 ( ++, -- )
+        // 비교연산자 ( <, >, <=, >=, ==, ===, !=, !== )
+        // 논리연산자
+        // ㄴ 비교연사자를 이용한 식을 2개 이상 사용할때 사용
+        // ㄴ ||, &&, !
+
+        let x = 10, dx = 20;
+
+        console.group( '산술연산자' );
+        console.log( x + dx );
+        console.log( x - dx );
+        console.log( x * dx );
+        console.log( x / dx );
+        console.log( x % dx );
+        console.groupEnd();
+        
+        console.group( '증감연산자' );
+            console.log( ++x );
+            console.log( --x );
+        console.groupEnd();
+
+        console.group( '비교연산자' );
+            console.log( x > dx );
+            console.log( x + 10 >= dx );
+            console.log( '20' == dx );
+            console.log( '20' === dx );     // 데이터의 타입까지 같은지 비교 [ ex) 숫자인지 문자인지 ]
+            console.log( '20' != dx );
+            console.log( '20' !== dx );     // 데이터의 타입까지 다른지 비교 [ ex) 숫자인지 문자인지 ]
+            console.log( `true / false 값 도출, 스크립트에서
+                          true / false를 불리언 데이터 타입이라고 함` );
+        console.groupEnd();
+        
+        console.group( '논리연산자' );
+            console.log( x == 10 || x > 10 );
+            console.log( x == 10 && x > 10 );
+            console.log( !(x == 10 && x > 10) );
+        console.groupEnd();
+        
+        /* ========================================================================== */
+        
+        let name = "이태현", pw1 = "1234";
+        console.log( name == "이태현" && pw1 == "1234" );
+        
+        let body = window.innerWidth;
+        let height1 = window.innerHeight;
+        console.log( body > 100 && height1 > 400 );
+        
+        let css = 80, html = 90, js = 80;
+        let result = ( css + html + js ) / 3 >= 80;
+        let msg1 = result ? '합격' : '불합격';       // 조건문 ? true : false;
+        
+        console.log(msg1);
+        
+        /* ========================================================================== */
+        // 19이상인지 확인
+        let age = 24,
+            isAdult = age > 19,
+            msg = isAdult ? '성인' : '미성년';
+
+        console.log(msg);
+        
+        // 회원구분 (100이상 구매한 회원은 vip회원 / 일반회원)
+        let orderPrice = 150,
+            vip = orderPrice >= 100,
+            msg2 = vip ? 'vip회원' : '일반회원';
+
+        console.log(msg2);
+        
+        // 기온 ( 영상 / 영하 )
+        let temp = -12,
+            result2 = temp > 0,
+            msg3 = result2 ? '영상 입니다.' : '영하 입니다.';
+
+        console.log(msg3);
+        
+        // 물이 끓는지
+        let water = 103,
+            result3 = water >= 100,
+            msg4 = result3 ? '물이 끓습니다.' : '물이 끓지 않습니다.';
+
+        console.log(msg4);
+
+        // 사각형의 넓이가 50이상인지
+        let width = 7,
+            height = 8,
+            area = width * height,
+            msg5 = area >= 50 ? '50이상 입니다.' : '50미만 입니다.';
+
+        console.log(msg5);
+
+        // 배고픔
+        let hugGage = 200,
+            hug = hugGage > 100,
+            msg6 = hug ? '배고파' : '안배고파';
+
+        console.log(msg6);
+
+        // 로그인
+        const id = '이태현',
+              pw = '1228';
+              
+        let id_input = 'dlxogus',
+            pw_input = '1228',
+            check = id_input == id && pw_input == pw,
+            login = check ? '로그인 중 입니다.' : '아이디 혹은 비밀번호가 틀립니다.';
+        
+        console.log(login);
+
+
+    </script>
+</body>
+</html>
