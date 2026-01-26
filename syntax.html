@@ -54,22 +54,39 @@
 
         let age = window.prompt('당신의 나이는?');
         console.log(age);
+        let msg2;
 
-        window.onclick = function () {
+        window.onclick = function () {      /* 클릭을 트리거로 function 실행 */
             if (age < 7) {
-                msg = '아동';
+                msg2 = '아동';
             }
             else if (age < 13) {
-                msg = '어린이';
+                msg2 = '어린이';
             }
-            else if (age <= 19) {
-                msg = '청소년';
+            else if (age < 20) {
+                msg2 = '청소년';
             }
             else {
-                msg = '성인';
+                msg2 = '성인';
             }
 
-            console.log(msg);
+            switch (msg2) {
+                case '아동':
+                    console.log('아동 요금 : 무료');
+                    break;
+       
+                case '어린이':
+                    console.log('어린이 요금 : 50% 할인');
+                    break;
+       
+                case '청소년':
+                    console.log('청소년 요금 : 30% 할인');
+                    break;
+       
+                default:
+                    console.log('성인 요금 : 10% 할인');
+                    break;
+            }
         }
 
     </script>
