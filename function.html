@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            background-color: black;
+        }
+    </style>
+</head>
+
+<body>
+    <script>
+        /* 표현식 */
+
+        /* 값을 받는 변수를 매개변수라고 함 */
+
+        //━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+        //                      fun
+        //━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+        let fun = function (bln) {
+            if (bln) {
+                console.log('true가 전달되었군..');
+            } else {
+                console.log('false가 전달되었군..');
+            }
+        }
+
+        /* 함수실행 */
+        // setTimeout(fun, 1000);      // 1초 후에 fun실행 | setTimeout(function() { ... }, 1000);
+        fun(true);
+        fun(false);
+
+        //━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+        //                      fun2
+        //━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+        let fun2 = function (n1, n2, n3, n4, n5) {
+            console.log(
+                `총 합은 ${n1 + n2 + n3 + n4 + n5} 입니다`      // ${} : string 중간에 string이 아닌 것을 사용할 때
+            );
+        }
+
+        fun2(10, 20, 30, 40, 50);
+
+        //━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+        //                      fun3
+        //━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+        let fun3 = function (id, pw) {
+            if (!id && !pw) {
+                return console.log("아이디와 비밀번호를를 입력하세요.");
+            }
+            else if (!id) {
+                return console.log("아이디를 입력하세요.");
+            }
+            else if (!pw) {
+                return console.log("비밀번호를를 입력하세요.");
+            }
+
+            /* else if를 사용하지 않아도 똑같이 작동 */
+            // if (id === 'admin' && pw === '1234') {
+            //     console.log('로그인 성공');
+            // }
+            // if (id !== 'admin') {
+            //     console.log('아이디가 틀렸습니다.');
+            // }
+            // if (pw !== '1234') {
+            //     console.log('비밀번호가 틀렸습니다.');
+            // }
+
+            /* 다른 방식의 같은 결과 조건문 */
+            if (id === 'admin') {
+                if (pw === '1234') {
+                    console.log('로그인 성공');
+                } else {
+                    console.log('비밀번호가 틀렸습니다.');
+                }
+            } else {
+                console.log('아이디가 틀렸습니다.');
+            }
+        }
+
+        console.log('──────────────────────');  // 구분선
+
+        fun3();
+        fun3('', '1234');
+        fun3('admin');
+
+        console.log('──────────────────────');  // 구분선
+
+        fun3('admin', '1234');
+        fun3('qwe', '1234');
+        fun3('admin', '5678');
+
+        //━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+        //                      fun4
+        //━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 
+        let total = 5000;
+        
+        let fun4 = function (type, price) {
+            if (type === '입금') {
+                total += price;
+                console.log('[  입금  ]');
+                console.log(`${price}을 입금 하셨습니다.`);
+                console.log(`당신의 잔액은 총 ${total}입니다.`);
+            }
+            if (type === '출금') {
+                total -= price;
+                console.log('[  출금  ]');
+                console.log(`${price}을 출금 하셨습니다.`);
+                console.log(`당신의 잔액은 총 ${total}입니다.`);
+            }
+        }
+
+        console.log('──────────────────────');  // 구분선
+        
+        fun4('입금', 1000);
+        fun4('출금', 3000);
+        
+        //━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+        //                      fun5
+        //━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+        // 잔여좌석(50)
+        let seats = 50;
+
+        let fun5 = function (type, num) {
+            /* ━━━━━━━━━━━━━━━━━━━━ ex1 ━━━━━━━━━━━━━━━━━━━━ */
+            // if (seats < num) {
+            //     console.log('[ 예매실패 ]');
+            //     console.log(`잔여 좌석이 부족합니다.`);
+            //     console.log(`남아있는 총 좌석은 ${seats}입니다.`);
+            //     return;
+            // }
+            // if (type === '예매') {
+            //     seats -= num;
+            //     console.log('[ 예매 ]');
+            //     console.log(`${num} 예매가 완료 되었습니다.`);
+            // }
+            // if (type === '예매취소') {
+            //     seats += num;
+            //     console.log('[ 예매취소 ]');
+            //     console.log(`${num} 예매취소가 처리 되었습니다.`);
+            // }
+
+
+            /* ━━━━━━━━━━━━━━━━━━━━ ex2 ━━━━━━━━━━━━━━━━━━━━ */
+            // if (type==='예매') {
+            //     if (seats < num) {
+            //         console.log('[ 예매실패 ]');
+            //         console.log(`잔여 좌석이 부족합니다.`);
+            //         console.log(`남아있는 총 좌석은 ${seats}입니다.`);
+            //         return;
+            //     }
+            //     seats -= num;
+            //     console.log('[ 예매 ]');
+            //     console.log(`${num} 예매가 완료 되었습니다.`);
+            // }
+            // if (type==='예매취소') {
+            //     if (seats < num) {
+            //         console.log('[ 예매실패 ]');
+            //         console.log(`잔여 좌석이 부족합니다.`);
+            //         console.log(`남아있는 총 좌석은 ${seats}입니다.`);
+            //         return;
+            //     }
+            //     seats += num;
+            //     console.log('[ 예매취소 ]');
+            //     console.log(`${num} 예매취소가 처리 되었습니다.`);
+            // }
+
+
+            /* ━━━━━━━━━━━━━━━━━━━━ ex3 ━━━━━━━━━━━━━━━━━━━━ */
+            // if (seats < num) {
+            //     console.log('[ 예매실패 ]');
+            //     console.log(`잔여 좌석이 부족합니다.`);
+            //     console.log(`남아있는 총 좌석은 ${seats}입니다.`);
+            // } 
+            // else if (type==='예매') {
+            //     seats -= num;
+            //     console.log('[ 예매 ]');
+            //     console.log(`${num} 예매가 완료 되었습니다.`);
+            // } 
+            // else if (type==='예매취소') {
+            //     seats += num;
+            //     console.log('[ 예매취소 ]');
+            //     console.log(`${num} 예매취소가 처리 되었습니다.`);
+            // }
+
+            if (type === '예매') {
+                if (seats >= num) {
+                    seats -= num;
+                    console.log('[ 예매 ]');
+                    console.log(`${seats} 예매가 완료 되었습니다.`);
+                } else {
+                    console.log('[ 예매실패 ]');
+                    console.log('잔여 좌석이 부족합니다.');
+                    console.log(`남아있는 총 좌석은 ${seats}입니다.`);
+                }
+            } else if (type === '예매취소') {
+                seats += num;
+                console.log('[ 예매취소 ]');
+                console.log(`${seats} 예매취소가 처리 되었습니다.`);
+            }
+        }
+        
+        console.log('──────────────────────');  // 구분선
+
+        fun5('예매', 30);
+        fun5('예매취소', 10);
+        fun5('예매', 50);
+        
+    </script>
+</body>
+
+</html>
