@@ -17,6 +17,10 @@
         //lest test = new Array();      // 배열 선언 방법
         let test = ['입금', 1000];
 
+        console.log(test);
+
+        console.log('━━━━━━━━━━━━━━━━━━━━━━━━━');       // 구분선
+
         /* 배열 추가 방법 */
         test[2] = '출금';
         test.push(5000);
@@ -26,20 +30,101 @@
         console.log(test[1]);
         console.log(test[2]);
 
+        console.log('━━━━━━━━━━━━━━━━━━━━━━━━━');       // 구분선
+
         /* num 변수의 값이 무수히 많을 경우에 필요한 값을 사용하고 싶을 때 */
         let num = [1, 2, 3, 4, 5, 6, 7];
 
-        if (num.includes(4)) {
-            
-        }
+        console.log(num.includes(4));
+
+        /* filter(배열값을 찾을 때) */
+        let num2 = num.filter(function (n) {
+            return n > 2;
+        });
+        console.log(num2);
+
+        num2 = num.filter(function (n) {
+            return !(n % 2);
+        });
+        console.log(num2);
+
+        num2 = num.filter(function (n) {
+            return n - 3;
+        });
+        console.log(num2);
+
+        console.log('━━━━━━━━━━━━━━━━━━━━━━━━━');       // 구분선
+
+        let animals = ['개', '사자와 고양이', '토끼', '사자'];
+
+        let animal = animals.filter(function (n) {
+            return n === '사자';
+        })
+        console.log(animal);
+
+        animal = animals.filter(function (n) {
+            return n.includes('사자');      // '사자'가 포함된 배열을 다 찾음
+        })
+        console.log(animal);
+
+        console.log('━━━━━━━━━━━━━━━━━━━━━━━━━');       // 구분선
+
+        /* map(배열값을 찾거나 변형 시킬 때) */
+        let num3 = [1, 2, 3, 4];
+
+        num4 = num3.map(function (n) {
+            return n * 2;
+        });
+        console.log(num4);
+
+        num4 = num3.map(function (n) {
+            if (n % 2) {
+                return n * 2;
+            }
+        });
+        console.log(num4);
+
+        console.log('━━━━━━━━━━━━━━━━━━━━━━━━━');       // 구분선
+
+        /* ex1 */
+        let scores = [
+            { '이름': '현주', '점수': 90, '판정': '' },
+            { '이름': '성경', '점수': 80, '판정': '' },
+            { '이름': '태현', '점수': 50, '판정': '' }
+        ];
         
-        // num.filter();
+        let result = scores.map(function (n) {
+            if (n.점수 > 60) {
+                return n.이름 + ' 합격'
+            } else {
+                return `${n.이름} 불합격`
+            }
+        });
+        console.log(result);
+
+        result = scores.map(function (n) {
+            if (n.점수 > 60) {
+                n.판정 = '합격'
+            } else {
+                n.판정 = '불합격'
+            }
+            return n;
+        });
+        console.log(result);
 
 
-
-
-
-
+        // 배열 (여러개의 값을 사용)
+        // 색인값을 사용하여 각각의 값을 찾을 수 있음(색인은 항상 0부터 시작)
+        // push() 메소드를 이용하여 배열값을 추가할 수 있음
+        // ㄴ배열.push(값);
+ 
+        // includes() 메소드를 이용하여 배열값을 찾을 수 있음(검색 키워드)
+ 
+        // filter() 배열의 값을 불리언값으로 찾을 수 있음(true, false)
+        // ㄴ배열.filter(function() { return 반환값; })
+        
+        // map() 배열의 값을 변형 또는 수정할 때 사용
+        // ㄴ배열.map(function() { return 반환값; });
     </script>
 </body>
 

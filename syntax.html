@@ -14,6 +14,9 @@
 
 <body>
     <script>
+        //━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+        //                      함수
+        //━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
         // 회원구분 (100이상 구매한 회원은 vip회원 / 일반회원)
         let orderPrice = 150;
         let isMember = orderPrice >= 100;
@@ -52,7 +55,8 @@
                 break;
         }
 
-        let age = window.prompt('당신의 나이는?');
+        let age;
+        // age = window.prompt('당신의 나이는?');       // 자꾸 떠서 잠깐 주석 처리
         console.log(age);
         let msg2;
 
@@ -74,15 +78,15 @@
                 case '아동':
                     console.log('아동 요금 : 무료');
                     break;
-       
+
                 case '어린이':
                     console.log('어린이 요금 : 50% 할인');
                     break;
-       
+
                 case '청소년':
                     console.log('청소년 요금 : 30% 할인');
                     break;
-       
+
                 default:
                     console.log('성인 요금 : 10% 할인');
                     break;
@@ -95,9 +99,19 @@
         }
 
         func();                     /* 함수 호출 */
-        console.log( func );        /* 함수 덩어리 자체를 출력 */
-        
-        
+        console.log(func());        /* 함수 덩어리 자체를 출력 */
+
+        //━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+        //                      반복문
+        //━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+        let arr = [];
+        let total = 0;
+
+        for (let i = 1; i <= 100; i++) {
+            arr.push(i);
+        }
+        console.log(arr);
+
     </script>
 </body>
 
