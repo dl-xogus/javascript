@@ -1,22 +1,73 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <style>body {background-color: black;}</style>
 </head>
+
 <body>
+    <article>
+        <h2>1 ~ 100까지의 수를 넣으시오.</h2>
+        <div id="ex1"></div>
+    </article>
+
+    <article>
+        <h2>1 ~ 100까지의 짝수만 출력하시오.</h2>
+        <div id="ex2"></div>
+    </article>
+
+    <article>
+        <h2>0 ~ 10까지의 수를 출력하시오.</h2>
+        <div id="ex3"></div>
+    </article>
+
     <script>
         let arr = [];
-        let total = 0;
 
+        /* ex1 */
         for (let i = 1; i <= 100; i++) {
             arr.push(i);
         }
+        ex1.innerText = arr;
 
-        console.log(arr);
+        /* ex2 */
+        for (let i = 0; i < 100; i++) {
+            // arr 변수의 값을 수정하시오(50을 **로 수정)
+            if (i == 49) {
+                arr[i] = '**';
+            }
+
+            if (i % 2) {
+                ex2.innerText += arr[i] + '/';          // +=로 해줘야 기존 값을 지우지 않고 합산해줌
+            }
+
+            // i 값이 5일 경우에 **을 출력하시오.
+            if (i == 5) {
+                ex2.innerText += '**';
+            }
+        }
+
+        /* ex3 */
+        
+        // 0 ~ 10 출력
+        let arr2 = [];
+
+        for (let i = 0; i <= 10; i++) {
+            arr2.push(i);
+        }
+        ex3.innerText = arr2;
+
+        // arr2의 모든 값을 합산하고 출력하시오.
+        let total2 = 0;
+
+        for (let i = 0; i <= 10; i++) {
+            total2 += arr2[i];
+        }
+        ex3.innerText += ' / 합 : ' + total2;
         
     </script>
 </body>
+
 </html>
